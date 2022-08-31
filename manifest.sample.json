@@ -1,0 +1,15 @@
+{
+  "app": "<アプリID>",
+  "scope": "<カスタマイズ適用範囲 (ALL|ADMIN|NONE)>",
+  "desktop": {
+    "js": [
+      "dist/app.min.js"
+    ],
+    "css": []
+  },
+  "mobile": {
+    "js": [
+      "dist/app.min.js"
+    ]
+  }
+}
