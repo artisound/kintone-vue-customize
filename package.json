@@ -5,11 +5,12 @@
   "author": "k.Nishizoe",
   "license": "MIT",
   "dependencies": {
-    "@kintone/rest-api-client": "^1.12.1",
+    "@kintone/rest-api-client": "^3.1.10",
     "dayjs": "^1.11.5",
     "dotenv-webpack": "^8.0.1",
     "kintone-vue-component": "^1.0.0",
     "vue": "2.x",
+    "vue-fullcalendar": "^1.0.9",
     "vue-loader": "15.x"
   },
   "devDependencies": {
