@@ -5,6 +5,7 @@
       type="submit"
       @click="onSave"
     />
+    {{event}}
     <Sample />
   </div>
 </template>
@@ -31,15 +32,6 @@ export default {
 
     // .env
     console.log('.env', process.env.TEST)
-  },
-  watch: {
-    event: {
-      deep: true,
-      handler: function(aft) {
-        this.event = aft
-        console.log(this.event)
-      },
-    }
   },
   methods: {
     onSave() {

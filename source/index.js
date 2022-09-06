@@ -10,6 +10,5 @@ kintone.events.on('app.record.index.show', function (event) {
   if (event.viewName === '一覧1') {
     const vm = new Vue(App).$mount('#app');
     vm.$data.event = event
-    console.log(vm.$data)
   }
 });
