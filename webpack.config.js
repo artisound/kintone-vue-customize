@@ -2,10 +2,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
-console.log(process.argv.slice(2))
-console.log(process.env.NODE_ENV)
-
 const config = {
+  mode: 'production',
   entry: path.resolve('./source/index.js'),
   resolve: {
     extensions: ['.ts', '.tsx', ".vue", '.js'],
@@ -24,7 +22,7 @@ const config = {
         test: /\.js$/,
         // exclude: /node_modules/,
         use: {
-          loader: 'esbuild-loader',
+          loader: 'babel-loader',
         },
       },
       {
