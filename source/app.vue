@@ -177,11 +177,10 @@ export default {
     },
 
     getDeliRecordsInMonth: async function(start, end) {
+      const condition = kintone.app.getQueryCondition()
       const query = [
         `実績日 >= "${dayjs(start).format('YYYY-MM-DD')}"`,
         `実績日 <= "${dayjs(end).format('YYYY-MM-DD')}"`,
-        `受信Box区分 in ("お知らせ")`,
-        `サービス区分 in ("広告(属性配信)(他社)", "広告(一斉配信)(他社)", "求人(属性配信)", "広告(自治体協定中)")`
       ].join(' and ')
 
       console.log(query)
@@ -189,7 +188,7 @@ export default {
       try {
         const records = await Client.record.getAllRecords({
           app: 38, // 配信管理
-          condition: query
+          condition: [query, condition].join(' and ')
         }).then(records => {
           const newRecords = []
           records.forEach(record => {

@@ -15,6 +15,7 @@ const builder = {
   minify: true,
   outfile: __dirname + '/dist/app.min.js',
   plugins: [esbuildVue(), esbuildEnv],
+  drop: ['console', 'debugger'],
   define: {
     'process.env': JSON.stringify(env),
     'process.env.NODE_ENV': process.env.NODE_ENV || 'development',
