@@ -42,7 +42,6 @@
   "scripts": {
     "dev": "yarn build:dev --serve",
     "build": "set NODE_ENV=\"production\" && node ./build.js",
-    "build:webpack": "webpack --config webpack.config.js --mode=development",
     "lint": "eslint  --ext .js",
     "lint-fix": "eslint  --ext .js --fix",
     "deploy": "yarn build && node deploy"
