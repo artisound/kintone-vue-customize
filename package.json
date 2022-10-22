@@ -44,6 +44,7 @@
     "build": "set NODE_ENV=\"production\" && node ./build.js",
     "lint": "eslint  --ext .js",
     "lint-fix": "eslint  --ext .js --fix",
-    "deploy": "yarn build && node deploy"
+    "deploy": "yarn build && node deploy",
+    "deploy:linux": "yarn build && ./deploy.sh"
   }
 }
