@@ -35,9 +35,10 @@ if (server) {
   // fse.copyFileSync('./public/index.html', `./${outdir}/index.html`);
   build(builder).then(resp => {
     create().init({
+      open  : false,
       watch : true,
       server: outdir,
-      https: {
+      https : {
         key: 'localhost-key.pem',
         cert: 'localhost.pem'
       }
