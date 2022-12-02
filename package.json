@@ -38,12 +38,12 @@
     "vue-template-compiler": "^2.7.10"
   },
   "scripts": {
-    "initial": "yarn install && mkcert localhost && node init",
-    "dev": "set NODE_ENV=\"development\" && node deploy --serve && node ./build.js --serve",
-    "build": "set NODE_ENV=\"production\" && node ./build.js",
+    "initial": "yarn install && mkcert localhost && node scripts/init",
+    "dev": "set NODE_ENV=\"development\" && node scripts/deploy --serve && node scripts/build.js --serve",
+    "build": "set NODE_ENV=\"production\" && node scripts/build.js",
     "lint": "eslint  --ext .js",
     "lint-fix": "eslint  --ext .js --fix",
-    "deploy": "yarn build && node deploy",
-    "deploy:mac": "yarn build && ./deploy.sh"
+    "deploy": "yarn build && node scripts/deploy",
+    "deploy:mac": "yarn build && scripts/deploy.sh"
   }
 }

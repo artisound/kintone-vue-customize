@@ -2,21 +2,21 @@ const { build, serve }  = require('esbuild');
 const { create, exit }  = require('browser-sync');
 const esbuildVue  = require('esbuild-vue');
 const esbuildEnv  = require('esbuild-envfile-plugin');
-const dotenv      = require('dotenv');
+const dotenv      = require('dotenv').config({path: "../env/.env"});
 const path        = require('path');
-const fse         = require('fs-extra');
 
 const args    = process.argv.slice(2)
 const server  = args.includes('--serve');
-const env     = dotenv.config().parsed;
-const outdir  = 'dist';
+const env     = dotenv.parsed;
+const outdir  = path.resolve(__dirname, '../dist')
+console.log(outdir)
 
 const builder = {
   entryPoints: [path.resolve('./source/index.js')],
   bundle: true,
   minify: !server,
   sourcemap: server,
-  outfile: `${__dirname}/${outdir}/app.min.js`,
+  outfile: `${outdir}/app.min.js`,
   plugins: [esbuildVue(), esbuildEnv],
   // drop: ['console', 'debugger'],
   define: {
@@ -26,7 +26,7 @@ const builder = {
   watch: !server ? false : {
     onRebuild (error, result) {
       if (error) console.error( 'watch build failed:', error)
-      else console.log( 'updated', result)
+      else console.log( 'updated' )
     },
   },
 }
